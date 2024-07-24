@@ -1,0 +1,20 @@
+{
+  "name": "imageverter",
+  "version": "1.0.0",
+  "description": "Image Format Converter",
+  "main": "index.js",
+  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "heic-convert": "^2.1.0",
+    "node-fetch": "^2.7.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "sharp": "^0.33.4",
+    "telegraf": "^4.16.3"
+  }
+}
