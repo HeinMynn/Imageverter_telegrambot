@@ -1,5 +1,6 @@
 const sharp = require("sharp");
 const fetch = require("node-fetch");
+const { saveUser } = require("./users");
 
 const userStates = {}; // To track user states
 const processingMessages = {}; // To track processing messages
@@ -21,9 +22,20 @@ module.exports = function (bot) {
     },
   };
 
-  bot.onText(/\/start/, (msg) => {
+  bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
+    const user = msg.from;
     userStates[chatId] = null; // Reset user state
+
+    const userData = {
+      user_id: user.id,
+      username: user.username,
+      first_name: user.first_name,
+      last_name: user.last_name,
+    };
+
+    await saveUser(userData); // Save user to MongoDB
+
     bot.sendMessage(chatId, "Choose a service:", servicesKeyboard);
   });
 

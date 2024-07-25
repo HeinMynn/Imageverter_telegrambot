@@ -1,6 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 const dotenv = require("dotenv");
 const bot = require("./bot");
+const broadcast = require("./broadcast");
 
 dotenv.config();
 
